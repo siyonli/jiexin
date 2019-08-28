@@ -15,7 +15,7 @@
 		display: block;
 		flex: 1;
 		color: #999999;
-		text-decoration: none;
+		text-decoration: none !important;
 	}
 	> a.current{
 		color: #000000;

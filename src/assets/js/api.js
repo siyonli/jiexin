@@ -2,21 +2,21 @@ import {instance as http,instanceForm as httpForm} from './http.js'
 const API = {
 	//开始答题接口、完成答题接口
 	answerBegin(param){
-		// param.token = '2718250f-640d-43ac-a628-ce188b5022ce';
+		param.token = '2718250f-640d-43ac-a628-ce188b5022ce';
 		return this.ajax("/api/answer/begin",'post',param);
 	},
 	answerEnd(param){
-		// param.token = '2718250f-640d-43ac-a628-ce188b5022ce';
+		param.token = '2718250f-640d-43ac-a628-ce188b5022ce';
 		return this.ajax("/api/answer/end",'post',param);
 	},
 	//获取答题接口
 	getQuestion(param){
-		// param.token = '2718250f-640d-43ac-a628-ce188b5022ce';
+		param.token = '2718250f-640d-43ac-a628-ce188b5022ce';
 		return this.ajax("/api/answer/get_question",'post',param);
 	},
 	//答题上报接口
 	questionReply(param){
-		// param.token = '2718250f-640d-43ac-a628-ce188b5022ce';
+		param.token = '2718250f-640d-43ac-a628-ce188b5022ce';
 		return this.ajax("/api/answer/reply",'post',param);
 	},
 	//获取榜单
@@ -50,7 +50,7 @@ const API = {
 	//用户信息
 	getUserInfo(param){
 		if(!param){
-			// param = {token:'2718250f-640d-43ac-a628-ce188b5022ce'}
+			param = {token:'2718250f-640d-43ac-a628-ce188b5022ce'}
 		}
 		return this.ajax("/api/user/userinfo",'get',param);
 	},

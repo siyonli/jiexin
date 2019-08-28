@@ -73,6 +73,8 @@
                     <span v-if="isCorrect=='success'">恭喜您，回答正确</span>
                 </div>
             </div>
+            <div style="height: 1.86rem" v-if="currentQuestion.question_type != 'single' && gameStatus=='start'"></div>
+            <div class="mulit-btn" v-if="currentQuestion.question_type != 'single' && gameStatus=='start'" @click="manualAnswer">确定</div>
         </div>
 
         <div :class="['layer-pk-mode',isPkWin?'success':'fail']" v-if="gameStatus == 'end'">
@@ -129,7 +131,7 @@
                 consuming : 0,                      //耗时
                 consumingText : '00:00',            //耗时
                 max_duration : 20,
-                userInfo : {},
+                userInfo : this.$store.state.userInfo,
                 beginTime : '',
                 endTime : '',
                 cacheData : {},
@@ -299,24 +301,84 @@
                         this.answerList[index] = 1;
                         this.endTime = new Date().getTime();
                         var _bool = this.checkAnswerIsCorrect();
-                        this.isCorrect = _bool ? "success" : "fail";
+                        // this.isCorrect = _bool ? "success" : "fail";
                     }
                 }else{
                     this.answerList[index] = !this.answerList[index];
-                    var length = this.answerList.filter(a=>a).length;
-                    var corrleng = this.currentQuestion.correct_list.filter(a=>a).length;
-                    if(length == corrleng){
-                        this.endTime = new Date().getTime();
-                        var bool = this.checkAnswerIsCorrect();
-                        this.isCorrect = bool ? "success" : "fail";
-                    }
                 }
                 if(this.mode == 'pk'){
+                    if(this.currentQuestion.question_type=='single'){
+                        var bool = this.checkAnswerIsCorrect();
+                        this.isCorrect = bool ? "success" : "fail";
+                        this.isBothAnswer("本人答题完毕");
+                    }
+                }else{
+                    if(this.currentQuestion.question_type=='single'){
+                        this.checkAnswer();
+                    }
+                }
+                this.$forceUpdate();
+            },
+            manualAnswer(){
+                if(this.currentQuestion.question_type=='single'){
+                    return;
+                }
+                if(this.mode == 'pk'){
+                    this.endTime = new Date().getTime();
+                    var bool = this.checkAnswerIsCorrect();
+                    this.isCorrect = bool ? "success" : "fail";
                     this.isBothAnswer("本人答题完毕");
                 }else{
                     this.checkAnswer();
                 }
-                this.$forceUpdate();
+            },
+            /**
+            *   检查答题情况
+            */
+            checkAnswer(){
+                this.stopAudio();
+                this.isCanDoAnswer = false;
+                this.gameStatus = 'checking';
+                var bool = this.checkAnswerIsCorrect();
+                this.isCorrect = bool ? "success" : "fail";
+                if(this.mode == 'pk'){
+                    this.myScore+= bool ? this.rule.win_score : 0;
+                }
+                if(this.mode == 'unlimited'){
+                    this.myScore+= bool ? this.rule.one_correct_score : 0;
+                }
+                if(this.mode == 'level'){
+                    this.myScore+= bool ? this.ruleitem.level_score : 0;
+                }
+                this.rivalScore += this.currentQuestion.rival_correct == 1 ? this.rule.win_score : 0;
+                this.wrongCount += bool ? 0 : 1;
+                this.correctCount += bool ? 1 : 0;
+                clearInterval(this.countdownTimer);
+                this.countdownTimer = null;
+                this.isRotate = false;
+                this.questionReply();
+                
+                var isLevelWrong = this.mode == 'level' && this.wrongCount > 0;
+                
+                this.checkAnswerTimer = setTimeout(()=>{
+                    if(isLevelWrong){
+                        this.gameEnd();
+                        return;
+                    }
+                    if(this.questionIndex%5==4 && this.mode == 'level'){
+                        this.gameStatus = "end";
+                        this.isPkWin = true;
+                        this.score = this.correctCount * this.ruleitem.level_score;
+                        return;
+                    }
+                    var index = this.questionIndex+1;
+                    if(this.mode == 'unlimited' && this.wrongCount >= 3){
+                        this.gameEnd();
+                    }else{
+                        this.beginGame(index);
+                    }
+                },2000)
+                
             },
             /**
             *   检查我的答案是否正确
@@ -426,49 +488,7 @@
                     }
                 },100)
             },
-            /**
-            *   检查答题情况
-            */
-            checkAnswer(){
-                this.isCanDoAnswer = false;
-                this.gameStatus = 'checking';
-                var bool = this.checkAnswerIsCorrect();
-                this.isCorrect = bool ? "success" : "fail";
-                if(this.mode == 'pk'){
-                    this.myScore+= bool ? this.rule.win_score : 0;
-                }
-                if(this.mode == 'unlimited'){
-                    this.myScore+= bool ? this.rule.one_correct_score : 0;
-                }
-                if(this.mode == 'level'){
-                    this.myScore+= bool ? this.ruleitem.level_score : 0;
-                }
-                this.rivalScore += this.currentQuestion.rival_correct == 1 ? this.rule.win_score : 0;
-                this.wrongCount += bool ? 0 : 1;
-                this.correctCount += bool ? 1 : 0;
-                clearInterval(this.countdownTimer);
-                this.countdownTimer = null;
-                this.isRotate = false;
-                this.questionReply();
-                
-                if(this.questionIndex%5==4 && this.mode == 'level'){
-                    setTimeout(()=>{
-                        this.gameStatus = "end";
-                        this.isPkWin = this.correctCount>=3;
-                        this.score = this.correctCount * this.ruleitem.level_score;
-                    },2000)
-                }else{
-                    this.checkAnswerTimer = setTimeout(()=>{
-                        var index = this.questionIndex+1;
-                        if(this.mode == 'unlimited' && this.wrongCount >= 3){
-                            this.gameEnd();
-                        }else{
-                            this.beginGame(index);
-                        }
-                    },2000)
-                }
-                
-            },
+            
             nextLevel(){
                 this.correctCount = 0;
                 this.beginGame(this.questionIndex+1);
