@@ -6,7 +6,7 @@
         <div class="login-layer" v-if="$store.state.openid">
             <div class="login-layer-bg" @click="$store.state.openid=''"></div>
             <div class="login-layer-form">
-                <h1>输入登录信息</h1>
+                <h1>绑定人事ID</h1>
                 <div class="lofin-form-row" v-if="0">
                     <input type="text" name="username" v-model="username">
                 </div>

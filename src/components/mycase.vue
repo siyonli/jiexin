@@ -1,6 +1,7 @@
 <template>
     <div @scroll="caseScroll">
         <caseList :caseList="caseList" :isedit="isedit"></caseList>
+        <div class="share-btn" @click="share">我要分享案例</div>
     </div>
 </template>
 
@@ -56,11 +57,25 @@
                         this.$popup(res.msg)
                     }
                 })
+            },
+            share(){
+                this.$router.push({path:"/share"})
             }
         }
     }
 </script>
 
 <style lang="scss">
-
+.share-btn{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    height: 1.52rem;
+    line-height: 1.52rem;
+    text-align: center;
+    background-image: linear-gradient(90deg, #FC921D 0%, #FA5E12 100%);
+    color: #ffffff;
+    font-size: 0.4rem;
+}
 </style>
