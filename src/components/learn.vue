@@ -26,7 +26,7 @@
                 </div>
                 <div class="learn-case" @scroll="caseScroll()">
                     <caseList :caseList="caseList" padding-bottom="1.68rem"></caseList>
-                    <div class="share-btn" v-if="tabIndex==2" @click="share">我要分享案例</div>
+                    <div class="share-btn" ref="sharebtn" v-if="tabIndex==2" @click="share">我要分享案例</div>
                 </div>
             </div>
         </div>
@@ -109,7 +109,7 @@
                         }else{
                             this.articleList = this.articleList.concat(res.data.list);
                         }
-                        if(this.art_page * res.pagesize >= res.data.total){
+                        if(this.art_page * res.data.pagesize >= res.data.total){
                             this.art_all_loaded = true;
                         }
                     }else{
@@ -136,7 +136,7 @@
                         }else{
                             this.caseList = this.caseList.concat(res.data.list);
                         }
-                        if(this.case_page * res.pagesize >= res.data.total){
+                        if(this.case_page * res.data.pagesize >= res.data.total){
                             this.case_all_loaded = true;
                         }
                     }else{
@@ -144,7 +144,7 @@
                     }
                 })
             },
-            share(){
+            share(e){
                 this.$router.push({path:"/share"})
             }
         }

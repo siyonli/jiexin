@@ -66,7 +66,6 @@
                     <a class="try-again" @click="oneMoreTry()">再来一局</a>
                 </div>
             </div>
-            
         </div>
 
 

@@ -42,7 +42,8 @@
                     "/caseDetail",
                     "/reply",
                     "/share",
-                    "/lucky"
+                    "/lucky",
+                    "/game"
                 ],
                 username : '',
                 weixinid : '',
@@ -51,7 +52,7 @@
         },
         created() {
             this.init();
-            this.getWxConfig();
+            // this.getWxConfig();
         },
         methods: {
             init() {

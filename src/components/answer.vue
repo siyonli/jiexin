@@ -36,7 +36,7 @@
 
             },
             beginGame(mode){
-                this.$router.push({path: '/game_'+mode})
+                this.$router.push({path: '/game',query:{mode:mode}})
             }
         },
         watch: {

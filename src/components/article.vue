@@ -20,7 +20,7 @@
                 </audio>
                 
             </div>
-            <div class="audio-progress">
+            <div class="audio-progress" @click.stop="audioProgress">
                 <i :style="{width:percent+'%'}"></i>
                 <div class="current-time">{{currentTime}}</div>
                 <div class="total-time">{{totalTime}}</div>
@@ -101,7 +101,7 @@
         },
         created() {
             this.getArticleDetail(this.id);
-            this.getWxConfig();
+            // this.getWxConfig();
         },
         methods: {
             getArticleDetail(id){
@@ -195,6 +195,15 @@
                     // alert("播放状态 暂停播放")
                     this.audio.pause();
                 }
+            },
+            audioProgress(e){
+                // console.log(e);
+                var offsetLeft = e.target.offsetLeft,
+                    eLeft = e.offsetX;
+                var width = e.target.clientWidth;
+                var percent = eLeft/width;
+                this.audio.currentTime = this.audio.duration*percent;
+                this.percent = Number(percent*100).toFixed(2);
             },
             wxAudioPlay(){
                 this.wxConfig.jsApiList = [

@@ -6,6 +6,7 @@ const Index = resolve => require(['./../components/index.vue'], resolve)
 const Answer = resolve => require(['./../components/answer.vue'], resolve)
 const Home = resolve => require(['./../components/home.vue'], resolve)
 const Rank = resolve => require(['./../components/rank.vue'], resolve)
+const game = resolve => require(['./../components/game.vue'], resolve)
 const pkGame = resolve => require(['./../components/game/pk.vue'], resolve)
 const unlimitedGame = resolve => require(['./../components/game/unlimited.vue'], resolve)
 const levelGame = resolve => require(['./../components/game/level.vue'], resolve)
@@ -42,6 +43,11 @@ const routes = [
         path: '/rank',
         name: '排行榜',
         component: Rank
+    },
+    {
+        path: '/game',
+        name: '答题',
+        component: game
     },
     {
         path: '/game_pk',

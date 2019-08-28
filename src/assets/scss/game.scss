@@ -432,12 +432,15 @@
 		background-size: 0.56rem;
 		box-sizing: border-box;
 		padding-left: 1.28rem;
-		line-height: 1.48rem;
+		line-height: 1.28rem;
 		font-size: 0.56rem;
 		color: #ffffff;
 		font-family: DINCondensed-Bold;
 		span{
 			font-size: 0.32rem;
 		}
+	}
+	.game-q-audio.playing{
+		background-image: url(../../../static/images/btn_video_game.gif);
 	}
 }
