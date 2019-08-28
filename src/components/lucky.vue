@@ -121,7 +121,7 @@
                 if(this.rotating){
                     return;
                 }
-                var user = this.$store.state.userInfo.score;
+                var user = this.$store.state.userInfo;
                 this.$dialog.confirm({
                     title: '提示',
                     message: '抽奖需要消耗50积分，当前剩余积分'+user.score
