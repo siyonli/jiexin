@@ -1,5 +1,5 @@
 <template>
-	<p class="case-list-empty" v-if="caseList.length==0">目前暂时没有优秀案例</p>
+	<p class="case-list-empty" v-if="caseList.length==0">当前没有相关案例</p>
 	<ul class="case-list" :style="{'padding-bottom':paddingBottom}">
 		<li v-for="(item,i) in caseList" @click="toCaseDetail(item)">
 			<div class="case-item-flex">
