@@ -124,7 +124,7 @@
                 var user = this.$store.state.userInfo;
                 this.$dialog.confirm({
                     title: '提示',
-                    message: '抽奖需要消耗50积分，当前剩余积分'+user.score
+                    message: '抽奖需要消耗50积分，当前剩余'+user.score+'积分'
                 }).then(() => {
                     this.rotating = true;
                     this.$api.toLottery().then(res=>{
@@ -162,11 +162,12 @@
                 setTimeout(()=>{
                     this.rotating = false;
                     this.showPrize();
+					this.getPrizeRecord();
                 },delay+300)
                 
             },
             showPrize(){
-                if(this.prize.name != "谢谢惠顾"){
+                if( this.prize.is_prize > 0 ){
                     this.isShowPrize = true;
                 }
             },
