@@ -29,11 +29,11 @@
         <div class="article-detail" :style="{'border-top':articleData.audio_file ? '1px solid #d1d1d1':'none'}">
             <h1>{{articleData.title}}</h1>
             <div class="article-detail-content article-detail-content-video" v-if="articleData.video_file">
-                <label>视频简介</label>
+                <!--<label>视频简介</label>-->
                 <p v-html="articleData.content"></p>
             </div>
             <div class="article-detail-content article-detail-content-audio" v-if="articleData.audio_file">
-                <label>音频简介</label>
+                <!--<label>音频简介</label>-->
                 <p v-html="articleData.content"></p>
             </div>
             <div class="article-detail-content article-detail-content-text" v-if="!articleData.video_file && !articleData.audio_file">
