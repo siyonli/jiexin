@@ -1,0 +1,213 @@
+.home-wrap{
+	background: url(../../../static/images/bg_personal.png) no-repeat center top;
+	background-size: 100%;
+}
+.personal{
+	overflow: hidden;
+	text-align: center;
+	color: #ffffff;
+}
+.personal-photo{
+	width: 1.68rem;
+	height: 1.68rem;
+	border: 0.2rem solid #ffffff;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0.8rem auto 0;
+	img{
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}
+.personal-name{
+	font-size: 0.5333rem;
+	margin-top: 0.5333rem;
+	line-height: 0.72rem;
+}
+.personal-id{
+	font-size: 0.32rem;
+	line-height: 0.48rem;
+}
+.personal-point{
+	font-size: 0.4rem;
+	margin-top: 0.24rem;
+	line-height: 0.56rem;
+	em{
+		font-size: 0.48rem;
+		font-family: "DINCondensed-Bold";
+		font-style: normal;
+		margin-right: 3px;
+	}
+}
+
+.home-main{
+	margin-top: 0.56rem;
+	background: #f5f5f5;
+	padding-top: 0.5333rem;
+	border-radius: 0.32rem;
+}
+.home-fn-btns{
+	padding: 0 0.4rem;
+	overflow: hidden;
+	display: flex;
+	> div{
+		flex: 1;
+	}
+	> div:first-child{
+		margin-right: 0.32rem;
+	}
+}
+.home-fn-signup,
+.home-fn-lucky{
+	height: 1.44rem;
+	text-align: center;
+	line-height: 1.44rem;
+	border-radius: 0.16rem;
+	color: #ffffff;
+	font-size: 0.4rem;
+	position: relative;
+	i{
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 0.48rem;
+		transform: translate3d(0,-50%,0);
+		width: 0.56rem;
+		height: 0.56rem;
+	}
+}
+.home-fn-signup{
+	background-image: linear-gradient(154deg, #FDA320 0%, #F94E0E 100%);
+	box-shadow: 0 2px 8px 0 rgba(250,103,19,0.40);
+	i{
+		background: url(../../../static/images/btn14_personal.png) no-repeat;
+		background-size: 100%;
+	}
+}
+.home-fn-signup.checkin{
+	background: #d5d5d5;
+	box-shadow: none;
+}
+.home-fn-lucky{
+	background-image: linear-gradient(154deg, #856EF2 0%, #6F54EC 100%);
+	box-shadow: 0 2px 10px 0 rgba(118,93,237,0.40);
+	i{
+		background: url(../../../static/images/btn13_personal.png) no-repeat;
+		background-size: 100%;
+	}
+}
+
+.home-links{
+	overflow: hidden;
+	margin: 0.8rem 0.4rem 0;
+	background: #ffffff;
+	border-radius: 0.16rem;
+	box-shadow: 0 2px 7px 0 rgba(0,0,0,0.04);
+	li{
+		height: 1.44rem;
+		line-height: 1.44rem;
+		font-size: 0.3733rem;
+		position: relative;
+		border-top: 1px solid #EAEAEA;
+		background-size: 0.56rem;
+		background-repeat: no-repeat;
+		background-position: 0.4rem center;
+		.home-link{
+			padding-left: 1.36rem;
+			display: block;
+			color: #4d4d4d;
+			text-decoration: none;
+		}
+	}
+	li:first-child{
+		border: none;
+	}
+	li:after{
+		display: block;
+		content: '';
+		width: 10px;
+		height: 10px;
+		transform: scaleX(-1) rotate(-45deg) translate3d(0,-50%,0);
+		border-top: 2px solid #D8D8D8;
+		border-left: 2px solid #D8D8D8;
+		position: absolute;
+		right: 0.56rem;
+		top: 50%;
+	}
+	.mycase{
+		background-image: url(../../../static/images/btn11_personal.png);
+	}
+	.feedback{
+		background-image: url(../../../static/images/btn12_personal.png);
+	}
+}
+
+.layer{
+	position: fixed;
+	overflow: hidden;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	.layer-bg{
+		width: 100%;
+		height: 100%;
+		background: rgba(74,74,74,0.60);
+	}
+	.layer-container{
+		overflow: hidden;
+		width: 8rem;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate3d(-50%,-50%,0);
+		border-radius: 0.16rem;
+	}
+}
+.signup-success{
+	background: url(../../../static/images/image15_personal_pop.png) no-repeat center 0.64rem #ffffff;
+	background-size: 3.4133rem;
+	padding: 4.16rem 0 0.5333rem;
+	text-align: center;
+	color: #222222;
+	label{
+		font-size: 0.5333rem;
+		line-height: 0.72rem;
+	}
+	.signup-tips{
+		font-size: 0.32rem;
+		line-height: 0.48rem;
+		em{
+			color: #fd7155;
+		}
+	}
+	.signup-layer-btn{
+		width: 3.84rem;
+		height: 0.96rem;
+		text-align: center;
+		line-height: 0.96rem;
+		color: #ffffff;
+		font-size: 0.4266rem;
+		background-image: radial-gradient(-5% 153%, #FDA320 0%, #F94E0E 100%);
+		box-shadow: 0 2px 10px 0 rgba(251,131,25,0.40);
+		border-radius: 0.16rem;
+		margin: 0.72rem auto 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

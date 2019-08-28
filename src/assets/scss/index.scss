@@ -1,0 +1,77 @@
+.index-wrap{
+  background: url(../../../static/images/bg_app.png) no-repeat center top;
+  background-size: 100%;
+}
+.index-nav{
+  margin: 1.52rem auto 0;
+  width: 9.12rem;
+  overflow: hidden;
+  display: flex;
+  background: #FFFFFF;
+  box-shadow: 0 6px 12px 0 rgba(0,0,0,0.06);
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 0.64rem 0.24rem 0.48rem;
+  > .index-nav-link{
+    flex: 1;
+    width: 1.52rem;
+    overflow: hidden;
+    // margin: 0 0.64rem;
+    padding-top: 1.76rem;
+    font-family: PingFangSC-Medium;
+    font-size: 0.32rem;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: center;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 1.52rem;
+  }
+  .index-nav_trainingcamp{
+    background-image: url(../../../static/images/btn01_home.png);
+  }
+  .index-nav_case{
+    background-image: url(../../../static/images/btn02_home.png);
+  }
+  .index-nav_luckydraw{
+    background-image: url(../../../static/images/btn03_home.png);
+  }
+  .index-nav_share{
+    background-image: url(../../../static/images/btn04_home.png);
+  }
+}
+.index-answer{
+  width: 9.12rem;
+  height: 2.72rem;
+  margin: 0.56rem auto 0;
+  overflow: hidden;
+  background: url(../../../static/images/banner_home.png) no-repeat center top;
+  background-size: 100%;
+  position: relative;
+  .index-answer-link{
+    display: block;
+    position: absolute;
+    width: 1.68rem;
+    height: 1.68rem;
+    top: 50%;
+    right: 0.56rem;
+    background: url(../../../static/images/btn05_home.png) no-repeat;
+    background-size: 100%;
+    transform: translate3d(0,-50%,0);
+  }
+}
+.pub-title{
+  display: block;
+  height: 1.68rem;
+  line-height: 1.68rem;
+  font-size: 0.48rem;
+  color: #000000;
+  text-shadow:1px 1px 0px #fff;
+}
+.index-union-rank{
+  width: 9.12rem;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-bottom: 0.4rem;
+}
+

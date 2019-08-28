@@ -1,0 +1,26 @@
+.Popup {
+		width: auto;
+		height: auto;
+		display: flex;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		line-height: .8rem;
+		max-width: 80%;
+		padding: .2rem 0.5rem;
+		box-sizing: border-box;
+		border-radius: .08rem;
+		/*white-space: nowrap;*/
+		/*overflow: hidden;*/
+
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate3d(-50%,-50%,0);
+		margin: auto;
+		background: rgba(0, 0, 0, 0.4);
+		z-index: 999;
+		color: #FFFFFF;
+		font-size: .36rem;
+		overflow: hidden;
+	}

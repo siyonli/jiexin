@@ -1,0 +1,82 @@
+.caseDetail{
+        background: #ffffff !important;
+    }
+    .case-detail{
+        overflow: hidden;
+        width: 9.12rem;
+        margin: 0 auto;
+        padding: 0.72rem 0.24rem 0;
+        box-sizing: border-box;
+    }
+    h1{
+        color: #000000;
+        font-size: 0.48rem;
+        line-height: 0.72rem;
+    }
+    .case-author{
+        height: 0.56rem;
+        line-height: 0.56rem;
+        overflow: hidden;
+        margin-top: 0.2666rem;
+        display: flex;
+        .case-author-avatar{
+            width: 0.56rem;
+            height: 0.56rem;
+            overflow: hidden;
+            border-radius: 0.56rem;
+            img{
+                width: 100%;
+            }
+        }
+        .case-author-info{
+            font-size: 0.32rem;
+            color: #999999;
+            margin-left: 0.2666rem;
+        }
+    }
+    .case-detail-content{
+        overflow: hidden;
+        font-size: 0.4rem;
+        color: #999999;
+        line-height: 0.72rem;
+        margin-top: 0.72rem;
+        img{
+            display: block;
+            width: 100%;
+        }
+        p{
+            padding-bottom: 0.4rem;
+        }
+    }
+    
+
+    .article-loading{
+        width: 2rem;
+        height: 2rem;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin: -1rem 0 0 -1rem;
+        border-radius: 0.2666rem;
+        background: rgba(0,0,0,.5);
+    }
+    .article-loading:after{
+        display: block;
+        content: "";
+        width: 0.8rem;
+        height: 0.8rem;
+        border: 2px solid rgba(255,255,255,.8);
+        border-left: 2px solid transparent;
+        border-radius: 0.8rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -0.4rem 0 0 -0.4rem;
+        animation: rotate linear .6s infinite;
+    }
+
+    @keyframes rotate
+    {
+        from {transform: rotate(0deg);}
+        to {transform: rotate(360deg);}
+    }

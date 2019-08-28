@@ -1,0 +1,53 @@
+.j-form{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    .j-form-content{
+        overflow: hidden;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .j-form-title{
+            overflow: hidden;
+            border-bottom: 1px solid #f2f2f2;
+            input{
+                display: block;
+                padding: 0.56rem 0.72rem;
+                font-size: 0.56rem;
+                height: 1.92rem;
+                line-height: 0.8rem;
+                margin: 0;
+                box-sizing: border-box;
+                width: 100%;
+                border: none;
+                outline: none;
+            }
+        }
+        .j-form-textarea{
+            flex: 1;
+            overflow: hidden;
+            textarea{
+                display: block;
+                padding: 0.56rem 0.72rem;
+                box-sizing: border-box;
+                width: 100%;
+                height: 100%;
+                font-size: 0.4rem;
+                line-height: 0.56rem;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+    .j-form-btn{
+        height: 1.52rem;
+        text-align: center;
+        line-height: 1.52rem;
+        font-size: 0.4rem;
+        color: #ffffff;
+        background-image: linear-gradient(90deg, #FC921D 0%, #FA5E12 100%);
+    }
+}

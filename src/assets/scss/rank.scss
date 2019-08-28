@@ -1,0 +1,81 @@
+.rank-wrap{
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.rank-tab{
+	height: 1.28rem;
+	line-height: 1.28rem;
+	background: #ffffff;
+	display: flex;
+	text-align: center;
+	font-size: 0.48rem;
+	> a{
+		display: block;
+		flex: 1;
+		color: #999999;
+		text-decoration: none;
+	}
+	> a.current{
+		color: #000000;
+		border-bottom: 0.08rem solid #FA6D15;
+	}
+}
+.rank-container{
+	overflow: hidden;
+	flex: 1;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	background: url(../../../static/images/bg_rank.png) no-repeat center top;
+	background-size: 100%;
+	padding: 0 0.4rem;
+	.rank-title{
+		font-size: 0.88rem;
+		color: #ffffff;
+		letter-spacing: 2px;
+		height: 1.2rem;
+		margin: 0.64rem 0;
+		font-weight: bold;
+		background: url(../../../static/images/logo.png) no-repeat right center;
+		background-size: 1.68rem;
+	}
+	.rank-switch{
+		padding: 0.16rem 0;
+		overflow: hidden;
+		background: #ffffff;
+		border-radius: 0.16rem;
+		li{
+			float: left;
+			display: inline-block;
+			height: 0.8rem;
+			line-height: 0.8rem;
+			color: #ABABAB;
+			font-size: 0.4rem;
+			margin: 0 0.16rem;
+			padding: 0 0.2666rem;
+			border-radius: 0.16rem;
+		}
+		li.current{
+			color: #ffffff;
+			background-image: linear-gradient(162deg, #FEBC7E 0%, #FC8748 98%);
+		}
+	}
+	.rank-list{
+		margin-top: 0.32rem;
+		margin-bottom: 0.32rem;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
