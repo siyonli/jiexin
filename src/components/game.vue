@@ -425,17 +425,20 @@
             *   预加载音频
             */
             audioPreload(audioSrc){
-                var audio = document.getElementById("qa-audio");
-                if(!audio){return;}
-                audioSrc.forEach(src=>{
-                    var source = document.createElement("source");
-                    var type = src.split(".")[1];
-                    source.type = type == "ogg" ? "audio/ogg" : "audio/mpeg";
-                    source.src = this.baseUrl + src;
-                    audio.appendChild(source);
+                this.$nextTick(()=>{
+                    var audio = document.getElementById("qa-audio");
+                    if(!audio){return;}
+                    audioSrc.forEach(src=>{
+                        var source = document.createElement("source");
+                        var type = src.split(".")[1];
+                        source.type = type == "ogg" ? "audio/ogg" : "audio/mpeg";
+                        source.src = this.baseUrl + src;
+                        audio.appendChild(source);
+                    })
+                    audio.addEventListener("loadedmetadata",this.loadedmetadata,true)
+                    audio.load();
                 })
-                audio.addEventListener("loadedmetadata",this.loadedmetadata,true)
-                audio.load();
+                
             },
             /**
             *   播放音频
@@ -558,11 +561,16 @@
         filters : {
             duration2str(v){
                 v = Math.ceil(v);
-                var m = v - v % 60,
-                    s = v - m * 60;
+                var h = Math.floor(v/3600),
+                    m = Math.floor((v - h * 3600)/60),
+                    s = v - m * 60 - h * 3600;
                 m = m < 10 ? ("0"+m) : m;
                 s = s < 10 ? ("0"+s) : s;
-                return m + ":" + s;
+                if(h){
+                    return (h < 10 ? ("0"+h) : h)
+                }else{
+                    return m + ":" + s;
+                }
             }
         }
     }
