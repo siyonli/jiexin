@@ -59,10 +59,8 @@
             }
         },
         created() {
-            console.log(this.$dialog.alert);
-            this.$dialog.alert({
-                message: '弹窗内容'
-            });
+            // console.log(this.$dialog.alert);
+            
             this.loadImage();
             this.getPrizeRecord();
         },
@@ -123,16 +121,27 @@
                 if(this.rotating){
                     return;
                 }
-                this.rotating = true;
-                this.$api.toLottery().then(res=>{
-                    if(res.code == 1){
-                        this.prize = res.data.prize;
-                        this.effectLuckyDraw();
-                    }else{
-                        this.rotating = false;
-                        this.$popup(res.msg);
-                    }
-                })
+                var user = this.$store.state.userInfo.score;
+                this.$dialog.confirm({
+                    title: '提示',
+                    message: '抽奖需要消耗50积分，当前剩余积分'+user.score
+                }).then(() => {
+                    this.rotating = true;
+                    this.$api.toLottery().then(res=>{
+                        if(res.code == 1){
+                            this.prize = res.data.prize;
+                            user.score = res.data.score;
+                            this.$store.dispatch("updateUserInfo",user);
+                            this.effectLuckyDraw();
+                        }else{
+                            this.rotating = false;
+                            this.$popup(res.msg);
+                        }
+                    })
+                }).catch(() => {
+                    // on cancel
+                });
+                
             },
             effectLuckyDraw(){
                 var index = 0;
@@ -267,6 +276,7 @@
     .gameover-result-content{
         background: none;
         padding: 1.6rem 0.5333rem 0.5333rem;
+        background: none !important;
         .prize{
             overflow: hidden;
             text-align: center;
@@ -283,7 +293,7 @@
                 margin: 0 auto !important;
             }
         }
-    }
+}
 .animate .pannel-title {
     transform-origin: center center;
     animation: myzoom 2s ease-in;
