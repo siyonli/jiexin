@@ -1,5 +1,9 @@
 <template>
     <div class="game-wrap">
+
+        <div style="display: none;">
+            <audio id="qa-audio" preload="preload"></audio>
+        </div>
         <div class="matching" v-if="mode=='pk' && gameStatus == 'matching'">
             <div class="matching-animate">
                 <div class="user">
@@ -46,9 +50,6 @@
             <div :class="['game-question-type',currentQuestion.question_type]" v-if="gameStatus=='prepare'">
                 <label>第{{questionIndex+1}}题</label>
                 <div class="q-type">{{currentQuestion.question_type == "single" ? "单选题" : "多选题"}}</div>
-            </div>
-            <div style="display: none;">
-                <audio id="qa-audio" preload="preload"></audio>
             </div>
             <div class="game-qa" v-if="gameStatus=='start' || gameStatus=='checking'">
                 <div class="game-question">
@@ -436,6 +437,8 @@
                         audio.appendChild(source);
                     })
                     audio.addEventListener("loadedmetadata",this.loadedmetadata,true)
+                    audio.addEventListener("timeupdate",this.loadedmetadata,true)
+                    audio.addEventListener("canplay",this.loadedmetadata,true)
                     audio.load();
                 })
                 
@@ -448,6 +451,8 @@
                 var audio = document.getElementById("qa-audio");
                 audio.play();
                 audio.removeEventListener("loadedmetadata",this.loadedmetadata,true)
+                audio.removeEventListener("timeupdate",this.loadedmetadata,true)
+                audio.removeEventListener("canplay",this.loadedmetadata,true)
             },
             /**
             *   停止播放音频
@@ -560,7 +565,7 @@
         },
         filters : {
             duration2str(v){
-                v = Math.ceil(v);
+                v = Math.ceil(v||0);
                 var h = Math.floor(v/3600),
                     m = Math.floor((v - h * 3600)/60),
                     s = v - m * 60 - h * 3600;
