@@ -58,6 +58,7 @@
             init() {
                 this.checkUrlPath(this.$route);
                 this.getUserInfo();
+				this.wxShare(this.$wx, WeixinConfig.init, WeixinConfig.share)
             },
             getWxConfig(){
                 this.$api.getWxConfig({
