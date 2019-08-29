@@ -1,6 +1,6 @@
 import Config from './config.js'
 const Common = {
-	ossUrl : "http://ask.dxytg.com"
+	ossUrl : "http://knowledge.dxytg.com"
 }
 
 export default Common;

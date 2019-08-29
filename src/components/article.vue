@@ -18,7 +18,6 @@
                     <!-- <source :src="articleData.audio_file" type="audio/mpeg">
                     <source :src="articleData.audio_file" type="audio/ogg"> -->
                 </audio>
-                
             </div>
             <div class="audio-progress" @click.stop="audioProgress">
                 <i :style="{width:percent+'%'}"></i>
