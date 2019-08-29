@@ -67,10 +67,10 @@ let mixin = {
 			// console.log(wx.updateAppMessageShareData)
 			wx.config({
 				debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出
-				appId: initConfig.appids, // 必填，公众号的唯一标识
+				appId: initConfig.appId, // 必填，公众号的唯一标识
 				timestamp: initConfig.timestamp, // 必填，生成签名的时间戳
-				nonceStr: initConfig.noncestr, // 必填，生成签名的随机串
-				signature: initConfig.sign, // 必填，签名，见附录1
+				nonceStr: initConfig.nonceStr, // 必填，生成签名的随机串
+				signature: initConfig.signature, // 必填，签名，见附录1
 				jsApiList: [
 					'onMenuShareTimeline',
 					'onMenuShareAppMessage'
@@ -82,8 +82,8 @@ let mixin = {
 				wx.onMenuShareAppMessage({
 					title: shareConfig.title, // 分享标题
 					desc: shareConfig.desc, // 分享描述
-					link: shareConfig.links, // 分享链接
-					imgUrl: shareConfig.wximgurl, // 分享图标
+					link: shareConfig.link, // 分享链接
+					imgUrl: shareConfig.imgUrl, // 分享图标
 					success: function() {
 						// alert("微信好友成功");
 						// 用户确认分享后执行的回调函数
