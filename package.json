@@ -15,7 +15,7 @@
     "hls.js": "^0.12.4",
     "lodash.assign": "^4.2.0",
     "node-sass": "^4.12.0",
-    "qs": "^6.6.0",
+    "qs": "^6.8.3",
     "sass-loader": "^7.1.0",
     "sha1": "^1.1.1",
     "transfer-webpack-plugin": "^0.1.4",
